@@ -14,7 +14,12 @@ class TableCompenent extends Component
     
     render() 
     { 
-        return ( <div><h1>Table Content From REACT</h1>{this.renderMoviesInTable()}</div> );
+        return ( <React.Fragment><h1>Table Content From REACT</h1>{this.renderSpan()}{this.renderMoviesInTable()}</React.Fragment> );
+    }
+
+    renderSpan()
+    {
+        return (<h1>Content Size is {this.state.movies.length}</h1>);
     }
 
     renderMoviesInTable()
@@ -30,19 +35,21 @@ class TableCompenent extends Component
             </tr>
             </thead>
             <tbody>
-                {this.state.movies.map((movie) => 
-                                    { 
-                                            return ([<tr>
-                                                <td> {movie.title} </td>,
-                                                <td> {movie.genre.name} </td>,
-                                                <td> {movie.numberInStock} </td>,
-                                                <td> {movie.dailyRentalRate} </td>,
-                                                <td><button id={movie._id}> Delete </button> </td>
-                                                </tr>])
-                                    }
+                {this.state.movies.map((movie) => ( <tr>
+                                                <td> {movie.title} </td>
+                                                <td> {movie.genre.name} </td>
+                                                <td> {movie.numberInStock} </td>
+                                                <td> {movie.dailyRentalRate} </td>
+                                                <td><button onClick={()=>this.removeElement(movie._id)}> Delete </button> </td>
+                                                </tr>)
                                     )}
              </tbody>
         </table>);
+    }
+
+    removeElement = (movieId) =>
+    {
+        this.setState({movies:this.state.movies.filter(function(movie){return movie._id!==movieId})});
     }
 }
 
