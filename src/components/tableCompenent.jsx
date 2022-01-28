@@ -42,7 +42,8 @@ class TableCompenent extends Component
                                                 <td> {movie.dailyRentalRate} </td>
                                                 <td><button onClick={()=>this.removeElement(movie._id)}> Delete </button> </td>
                                                 </tr>)
-                                    )}
+                                    )
+                }
              </tbody>
         </table>);
     }

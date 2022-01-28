@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import TableCompenent from './components/tableCompenent';
+import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render( <TableCompenent/> ,document.getElementById('root'));
+
+ReactDOM.render( <App/> ,document.getElementById('root'));
 
