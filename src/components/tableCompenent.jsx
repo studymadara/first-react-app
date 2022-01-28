@@ -19,7 +19,7 @@ class TableCompenent extends Component
 
     renderSpan()
     {
-        return (<h1>Content Size is {this.state.movies.length}</h1>);
+        return (this.state.movies.length!=0?<h1>Content Size is {this.state.movies.length}</h1>:<h1>There are no movies to display</h1>);
     }
 
     renderMoviesInTable()
