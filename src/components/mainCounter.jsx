@@ -15,18 +15,23 @@ class MainCounter extends Component
     
     addCount = (id) =>
     {
-        console.log(id,'THIS IS GETTING CALLED');
-        let newCounter=this.state.counters.map(function (counter) 
+        let newCounter=this.state.counters.map((counter) => 
                                             {
                                                 if(counter.id===id)
                                                     counter.value++
+                                                return counter;
                                             });
         this.setState({counters:newCounter});
     }
 
     subCount = (id) =>
     {
-        let counters=this.state.counters.map((counter)=>{if(counter.id===id)counter.value--});
+        let counters=this.state.counters.map((counter)=>
+        {
+            if(counter.id===id)
+                counter.value-- 
+            return counter;
+        });
         this.setState({counters});
     }
 
@@ -38,7 +43,11 @@ class MainCounter extends Component
 
     resetCount = () =>
     {
-        let counters=this.state.counters.map((counter)=>counter.value=0);
+        let counters=this.state.counters.map((counter)=>
+        {
+            counter.value=0 
+            return counter;
+        });
         this.setState({counters});
     }
 
@@ -46,6 +55,7 @@ class MainCounter extends Component
     { 
         return (<React.Fragment>
                 <NavBar allCount={this.state.counters.filter((counter)=>counter.value!==0).length}></NavBar> 
+                <button className="btn btn-primary" onClick={()=>this.resetCount()}>Reset</button>
                 {this.state.counters.map((c) => (<Counter 
                                                             key={c.id} 
                                                             addCount={()=>this.addCount(c.id)}    

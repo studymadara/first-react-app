@@ -13,7 +13,7 @@ class Counter extends Component
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                        {this.renderConditionalSpan}
+                        {this.renderConditionalSpan()}
                         </div>
                         <div className="col">
                         <button className="btn btn-success" onClick={()=>this.props.addCount(this.props.counter.id)}>+</button>
@@ -36,11 +36,11 @@ class Counter extends Component
     {
         if(this.props.counter.value===0) 
         {
-            return <span className="badge badge-pill badge-primary">Zero</span>
+            return <span className="">Zero</span>
         }
         else
         {
-            return <span className="badge badge-pill badge-primary">{this.props.counter.value}</span>
+            return <span className="">{this.props.counter.value}</span>
         }
     }
 }
