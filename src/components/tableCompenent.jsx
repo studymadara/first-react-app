@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
+import Like from "./like";
 
 class TableCompenent extends Component 
 {
@@ -40,6 +41,7 @@ class TableCompenent extends Component
                                                 <td> {movie.genre.name} </td>
                                                 <td> {movie.numberInStock} </td>
                                                 <td> {movie.dailyRentalRate} </td>
+                                                <td><Like/></td>
                                                 <td><button onClick={()=>this.removeElement(movie._id)}> Delete </button> </td>
                                                 </tr>)
                                     )

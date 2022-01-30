@@ -19,7 +19,7 @@ class Counter extends Component
                         <button className="btn btn-success" onClick={()=>this.props.addCount(this.props.counter.id)}>+</button>
                         </div>
                         <div className="col">
-                        <button className="btn btn-secondary" onClick={()=>this.props.subCount(this.props.counter.id)}>-</button>
+                        <button className="btn btn-secondary" disabled={this.props.counter.value==0} onClick={()=>this.props.subCount(this.props.counter.id)}>-</button>
                         </div>
                         <div className="col">
                         <button className="btn btn-danger" onClick={()=>this.props.deleteCount(this.props.counter.id)}>X</button>
