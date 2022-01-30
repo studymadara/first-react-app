@@ -13,25 +13,30 @@ class MainCounter extends Component
             ] 
         } 
     
-    addCount(id)
+    addCount = (id) =>
     {
-        let counters=this.state.counters.map((counter)=>{if(counter.id===id)counter.value++});
-        this.setState({counters});
+        console.log(id,'THIS IS GETTING CALLED');
+        let newCounter=this.state.counters.map(function (counter) 
+                                            {
+                                                if(counter.id===id)
+                                                    counter.value++
+                                            });
+        this.setState({counters:newCounter});
     }
 
-    subCount(id)
+    subCount = (id) =>
     {
         let counters=this.state.counters.map((counter)=>{if(counter.id===id)counter.value--});
         this.setState({counters});
     }
 
-    deleteCount(id)
+    deleteCount= (id) =>
     {
-        let counters=this.state.counters.filter((counter)=>counter.id!==id);
+        let counters=this.state.counters.filter(function(counter){return counter.id!==id});
         this.setState({counters});
     }
 
-    resetCount()
+    resetCount = () =>
     {
         let counters=this.state.counters.map((counter)=>counter.value=0);
         this.setState({counters});
