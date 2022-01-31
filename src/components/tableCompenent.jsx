@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
 import Like from "./like";
+import Pagination from "./pagination";
 
 class TableCompenent extends Component 
 {
@@ -25,7 +26,8 @@ class TableCompenent extends Component
 
     renderMoviesInTable()
     {
-        return (<table>
+        return (<React.Fragment>
+        <table>
             <thead>
             <tr>
             <th>Title</th>
@@ -47,7 +49,9 @@ class TableCompenent extends Component
                                     )
                 }
              </tbody>
-        </table>);
+        </table>
+        <Pagination pageCount={3}></Pagination>
+        </React.Fragment>);
     }
 
     removeElement = (movieId) =>
