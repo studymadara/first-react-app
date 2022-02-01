@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 class Pagination extends Component {
 
@@ -23,12 +24,12 @@ class Pagination extends Component {
 
         // return template;
 
-        console.log('i was mounted');
+        console.log('i was mounted',this.props.pageCount);
 
-        {Array.apply(1,Array(this.props.pageCount).map(function (x,index) 
-        {
-            return <li className="page-item"><a className="page-link" href="#">{index}</a></li>;
-        }))}
+        let rangeData =_.range(1,this.props.pageCount+1);
+
+        return rangeData.map(x=> 
+        (<li className="page-item"><a className="page-link" href="#">{x}</a></li>))
 
     }
 
